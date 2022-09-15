@@ -6,8 +6,8 @@
      "display":"standalone",
     "icons": [
         {
-            "src": "./android-chrome-192x192.png",
-            "sizes": "192x192",
+            "src": "./favicon-16x16",
+            "sizes": "16x16",
             "type": "image/png"
         },
         
