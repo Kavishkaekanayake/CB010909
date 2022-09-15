@@ -1,7 +1,7 @@
 {
     "name": "Tea  Image",
     "short_name": "TeaMr",
-    "start url":"/home.html",
+    "start url":"./home.html",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
