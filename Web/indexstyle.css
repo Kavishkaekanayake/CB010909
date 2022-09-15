@@ -1,0 +1,605 @@
+/*-----------------Animated parallax slide show--------------------------------------*/
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  color: #fff;
+  margin:0;
+  padding:0;
+	-webkit-perspective: 1px;
+	perspective: 1px;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+header {
+  box-sizing: border-box;
+  min-height: 40vw;
+  padding: 30vw 0 5vw;
+  position: relative;
+  -webkit-transform-style: inherit;
+  transform-style: inherit;
+  width: 100vw;
+}
+
+header, header:before {
+  background: 50% 50% / cover;
+}
+
+
+header::before {
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+	display: block;
+	background-color: #8a8;
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/f0/Sri_Lanka_Teeplantage.jpg);
+  background-size: cover;
+  -webkit-transform-origin: center center 0;
+  -webkit-transform: translateZ(-1px) scale(2);
+  transform-origin: center center 0;
+  transform: translateZ(-1px) scale(2);
+  z-index: -1;
+  min-height: 100vh;
+}
+header * {
+  font-weight: normal;
+  letter-spacing: 0.2em;
+  text-align: center;
+  margin: 0;
+	padding: 1em 0;
+}
+
+header h1{
+
+font-size:150px;
+
+}
+
+
+header p {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 70px;
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/*----------------------main class with white background----------------------------------*/
+main {
+  background-color:white;
+  line-height: 1.7;
+  max-width: 32em;
+  padding: 5% calc(50% - 16em) 35%;
+  position: relative;
+  z-index: 2;
+}
+
+main p{
+
+  color: black;
+}
+
+main p.head{
+
+font-size: 20px;
+font-weight: 200px;
+
+}
+
+
+/*--------------------image slider----------------------------------------------*/
+
+
+.main-nav {
+ 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  width: 600px;
+  height: 150px;
+  float: left;
+}
+
+.main-nav li {
+  list-style: none;
+  
+  width: 250px;
+  height: 250px;
+  background: #000;
+  transform: rotate(360deg);
+  transition: 0.5s;
+  
+  overflow: hidden;
+  opacity: 0.5;
+}
+
+.main-nav li:hover {
+  opacity: 1;
+}
+
+
+.main-nav li .bg {
+  width: 100%;
+  height: 100%;
+  transform: scale(1.1);
+}
+
+.main-nav li.item1 .bg {
+  background: url(https://imgur.com/ir9l1IJ.jpg);
+  background-size: cover;
+  
+}
+
+.main-nav li.item2 .bg {
+  background: url(https://imgur.com/fwe8Z9Q.jpg);
+  background-size: cover;
+  
+}
+
+.main-nav li.item3 .bg {
+  background: url(https://imgur.com/kSoRoDk.jpg);
+  background-size: cover;
+
+}
+
+.main-navs li.item4 .bgs {
+  background: url(https://imgur.com/sz1BSkB.jpg);
+  background-size: cover;
+
+}
+
+.main-navs li.item5 .bgs {
+  background: url(https://imgur.com/ara0hoV.jpg);
+  background-size: cover;
+}
+
+
+.main-navs li.item6 .bgs {
+  background: url(https://imgur.com/ara0hoV.jpg);
+  background-size: cover;
+  
+}
+
+
+.main-navs {
+  top: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  width:0px;
+  height:190px;
+  float: right;
+}
+
+.main-navs li {
+  list-style: none;
+  
+  width: 250px;
+  height: 250px;
+  background: #000;
+  transform: rotate(360deg);
+  transition: 0.5s;
+  overflow: hidden;
+  opacity: 0.5;
+}
+
+.main-navs li:hover {
+  opacity: 1;
+}
+
+
+.main-navs li .bg {
+  width: 100%;
+  height: 100%;
+  transform: scale(1.1);
+}
+
+/*-------------------------------------nav bar--------------------------------*/
+
+.nav{
+  position: fixed;
+  top:200px;
+  right: -100%;
+  height: 100%;
+  width: 100%;
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG);
+  transition: all 0.6s ease-in-out;
+}
+
+#anime:checked ~ .nav{
+  right:0;
+}
+
+.menu-btn{
+  position:absolute;
+  z-index: 2;
+  right:20px;
+  top:20px;
+  height:30px;
+  width: 60px;
+  text-align: center;
+  line-height: 50px;
+  border-radius:100%;
+  font-size:20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-btn span,
+.menu-btn:before,
+.menu-btn:after{
+	content: "";
+	position: absolute;
+	top: calc(50% - 1px);
+	left: 30%;
+	width:40%;
+	border-bottom: 3px solid white;
+	transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  padding: 5px;
+}
+.menu-btn:before{
+  transform: translateY(-8px);
+}
+.menu-btn:after{
+  transform: translateY(8px);
+}
+
+
+.close {
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	transition: background .6s;
+}
+
+#anime:checked + .menu-btn span {
+	transform: scaleX(0);
+}
+#anime:checked + .menu-btn:before {
+	transform: rotate(45deg);
+  border-color: #fff;
+}
+#anime:checked + .menu-btn:after {
+	transform: rotate(-45deg);
+  border-color: #fff;
+}
+.nav ul{
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  height:100%;
+  transform: translate(-50%, -50%);
+  list-style:circle;
+  text-align: center;
+}
+.nav ul li{
+  height: 10%;
+  margin: 10px;
+  justify-content: space-evenly;
+  align-items:stretch;
+}
+.nav ul li a{
+  text-decoration: none;
+  font-size: 20px;
+  padding:50px;
+  color: #fff;
+  border-radius: 50px;
+  position: absolute;
+  line-height:30px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.nav ul li a:after{
+  position: absolute;
+  content: "";
+  background: #fff;
+  background: linear-gradient(#8a8);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  transform: scaleY(0);
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+.nav ul li a:hover:after{
+  transform: scaleY(1);
+}
+.nav ul li a:hover{
+  color: #1a73e8;
+}
+input[type="checkbox"]{
+  display: none;
+}
+.content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  text-align: center;
+  width: 100%;
+  color: #202020;
+}
+.content .title{
+  font-size: 40px;
+  font-weight: 700;
+}
+.content p{
+  font-size: 35px;
+  font-weight: 600;
+}
+
+#anime:checked ~ .nav ul li a{
+  opacity: 1;
+}
+.nav ul li a{
+  transition: opacity 1.2s, transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: translateX(100px);
+}
+#anime:checked ~ .nav ul li a{
+	transform: none;
+	transition-timing-function: ease, cubic-bezier(.1,1.3,.3,1);  
+   transition-delay: .6s;
+  transform: translateX(-100px);
+}
+
+/*------------------------------------------------------------------------------*/
+
+/*---------------------------------footer parallax---------------------------------------------*/
+
+
+.footer-parallax {
+  box-sizing: border-box;
+  min-height: 40vw;
+  padding: 30vw 0 5vw;
+  position: relative;
+  -webkit-transform-style: inherit;
+  transform-style: inherit;
+  width: 100vw;
+}
+.footer-parallax, footer-parallax:before {
+  background: 50% 50% / cover;
+}
+
+.footer-parallax::before {
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+	display: block;
+	background-color: #8a8;
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/f0/Sri_Lanka_Teeplantage.jpg);
+  background-size: cover;
+  -webkit-transform-origin: center center 0;
+  -webkit-transform: translateZ(-1px) scale(2);
+  transform-origin: center center 0;
+  transform: translateZ(-1px) scale(2);
+  z-index: -1;
+  min-height: 100vh;
+}
+.footer-parallax * {
+  font-weight: normal;
+  letter-spacing: 0.2em;
+  text-align: center;
+  margin: 0;
+	padding: 1em 0;
+}
+
+/*-------------------------------------------------------------------------*/
+
+/*---------------------------------footer of the website----------------------------------------*/
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+
+
+section {
+  width: 100%;
+  display: inline-block;
+  background-color:#222;
+  height: 50vh;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.footer-class{
+	background: #666;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+	padding: 55px 50px;
+}
+
+.footer-class .leftside,
+.footer-class .center,
+.footer-class .rightside{
+	display: inline-block;
+	vertical-align: top;
+}
+
+
+
+.footer-class .leftside{
+	width: 40%;
+}
+
+
+
+.logofoot{
+	color:  #ffffff;
+	margin: 0;
+}
+
+div.logofoot.image{
+
+  width: 50px;
+  height:50px;
+}
+
+ 
+.footer-class .footer-links{
+	color:  #ffffff;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer-class .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+  font-weight:400;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-class .footer-company-name{
+	color:  #222;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+
+
+.footer-class .center{
+	width: 35%;
+}
+
+.footer-class .center i{
+	background-color:  #33383b;
+	color: #ffffff;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.footer-class .center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footer-class .center p{
+	display: inline-block;
+	color: #ffffff;
+  font-weight:400;
+	vertical-align: middle;
+	margin:0;
+}
+
+.footer-class .center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+.footer-class .center p a{
+	color:  lightseagreen;
+	text-decoration: none;;
+}
+
+.footer-class .footer-links a:before {
+  content: "|";
+  font-weight:300;
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.footer-class .footer-links .link-1:before {
+  content: none;
+}
+
+ 
+
+.footer-class .rightside{
+	width: 20%;
+}
+
+.footer-class .footer-company-about{
+	line-height: 20px;
+	color:  #92999f;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.footer-class .footer-company-about span{
+	display: block;
+	color:  #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.footer-class .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-class .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #33383b;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+
+@media (max-width: 880px) {
+
+	.footer-class{
+		font: bold 14px sans-serif;
+	}
+
+	.footer-class .leftside,
+	.footer-class .center,
+	.footer-class .rightside{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footer-class .center i{
+		margin-left: 0;
+	}
+
+}
+
+/*----------------------------------------------------------------*/
