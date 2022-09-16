@@ -1,10 +1,10 @@
 {
     "name": "Tea  Image",
     "short_name": "TeaMr",
-    "start url":"/home.html",
+    "start url":"./home.html",
     "icons": [
         {
-            "src": "/android-chrome-192x192.png",
+            "src": "./Web/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         }
