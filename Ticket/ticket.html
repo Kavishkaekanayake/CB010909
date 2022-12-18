@@ -1,0 +1,170 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styleticket.css">
+	<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<link rel="manifest" href="./site.webmanifest">
+<link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+    <title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+        
+</head>
+<body>
+	<video autoplay muted loop id="myVideo">
+		<source src="./train.mp4" type="video/mp4">
+		
+	  </video>
+    <div class="section">
+		<p id="currentorder"></p>
+        <p id="overallorder"></p>
+		<div class="container">
+			<div class="row full-height justify-content-center">
+				<div class="col-12 text-center align-self-center py-5">
+					<div class="section pb-5 pt-5 pt-sm-2 text-center">
+						<h4><span>LOCAL</span><span>Foreigners</span></h4>
+			          	<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
+			          	<label for="reg-log"></label>
+						<div class="card-3d-wrap mx-auto">
+							<div class="card-3d-wrapper">
+								<div class="card-front">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<a href="./Assignment_Zip_Folder/Museum.html"><button class="button-three">Back to Museum page</button></a> 
+											<h4 class="mb-4 pb-3">Enter details(Local)</h4>
+											
+                      											<div class="form-group">
+												<input type="number" name="localadults" class="form-style" placeholder="No of local adults" id="localadults" autocomplete="off" max="100" min="1"required>
+												<label for="durload">Select the duration:</label>
+												<select id="durload" name="dur" onchange="calculateValue2();" >
+													<option value="0">Select</option>
+												  <option value="0">3 hours</option>
+												  <option value="125">1/2 a day</option>
+												  <option value="250">full day</option>
+												  <option value="500">2 days</option>
+												</select>
+											</div>	
+											 
+											<div class="form-group mt-2">
+												<input type="text" name="children" class="form-style" placeholder="No of children" id="children" autocomplete="off" max="100" min="1"required>
+												<i class="input-icon uil uil-lock-alt"></i>
+												<label for="durchil">Select the duration:</label>
+												<select id="durchil" name="durchil" onchange="calculateValue2();" >
+													<option value="0">Select</option>
+												  <option value="0">3 hours(local)</option>
+												  <option value="125">1/2 a day(local)</option>
+												  <option value="250">full day(local)</option>
+												  <option value="1000">2 days(local)</option>
+												</select>
+											</div>
+											 
+											<div class="form-group mt-2">
+											<label for="agechil">Select the age range of children(local):</label>
+											<select id="agechil" name="agechil" onchange="calculateValue2();">
+												<option value="0">Select</option>
+											  <option value="1000">Below 15</option>
+											  <option value="500">below 6</option>
+											   
+											</select>
+											</div>
+											 
+											<div class="form-group mt-2">
+												<label for="extype">Select the type:</label>
+												<select id="extype" name="extype" onchange="calculateValue2();">
+													<option value="0">Select</option>
+												  <option value="5000">Annual pass</option>
+												  <option value="500">Food Token</option>
+												</select>
+												<div class="form-group">
+													<input type="number" name="num" class="form-style" placeholder="No of passes or tokens" id="num" autocomplete="off" max="100" min="1"required>
+													</div>
+													
+												</div>
+											<a href="#" class="btn mt-4" style="text-decoration:none" id="Addorder1">Add order</a>
+                            				<a href="#" class="btn mt-4" style="text-decoration:none" id="Placeorder">Place order</a>
+											<p id="currentorder1"><h2></h2></p>
+				      					</div>
+			      					</div>
+									  
+			      				</div>
+								<div class="card-back">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<a href="./Museum.html"><button class="button-three">Back to Museum page</button></a> 
+											<h4 class="mb-4 pb-3">Enter details(Foreigners)</h4>
+											<div class="form-group mt-2">
+												<input type="text" name="foreignadults" class="form-style" placeholder="No of foreign adults" id="foreignadults" autocomplete="off">
+												<i class="input-icon uil uil-lock-alt"></i>
+												<label for="durfoad">Select the duration:</label>
+												<select id="durfoad" name="durfoad" onchange="calculateValue3();" >
+													<option value="0">Select</option>
+													<option value="500">3 hours</option>
+												  <option value="250">1/2 a day</option>
+												  <option value="500">full day</option>
+												  <option value="1000">2 days</option>
+												</select>
+											</div>
+											 
+											<div class="form-group mt-2">
+												<input type="number" name="children1" class="form-style" placeholder="No of children" id="children1" autocomplete="off">
+												<i class="input-icon uil uil-lock-alt"></i>
+												<label for="durchil1">Select the duration:</label>
+												<select id="durchil1" name="durchil1" onchange="calculateValue3();" >
+													<option value="0">Select</option> 
+												  <option value="500">3 hours(foreign)</option>
+												  <option value="250">1/2 a day(foreign)</option>
+												  <option value="500">full day(foreign)</option>
+												  <option value="1000">2 days(foreign)</option>
+												</select>
+											</div>
+											<div class="form-group mt-2">
+												<label for="agechil1">Select the age range of children(local):</label>
+												<select id="agechil1" name="agechil1" onchange="calculateValue3();">
+													<option value="0">Select</option>
+												  <option value="2500">foreign(all)</option>
+												</select>
+												</div>
+											<div class="form-group mt-2">
+												<label for="extype">Select the type:</label>
+												<select id="extype" name="extype" onchange="calculateValue3();">
+													<option value="0">Select</option>
+													<option value="5000">Annual pass</option>
+												  <option value="500">Food Token</option>
+												</select>
+												<div class="form-group">
+													<input type="number" name="num" class="form-style" placeholder="No of passes or tokens" id="num" autocomplete="off">
+													</div>
+													
+												</div>
+												<a href="#" class="btn mt-4" style="text-decoration:none" id="Addorder2">Add order</a>
+												<a href="#" class="btn mt-4" style="text-decoration:none" id="Placeorder1">Place order</a>	
+				      					</div>
+										  <p id="currentorder2"><h2></h2></p>
+										  
+			      					</div>
+									 
+			      				</div>
+								
+			      			</div>
+							
+			      		</div>
+			      	</div>
+					  
+		      	</div>
+	      	</div>
+	    </div>
+	</div>
+	
+	<script src="./ticket.js"></script>
+	<div class="display">
+	<p id="overallorder" ><h2>Overall order</h2></p>
+	
+	</div>		
+	
+</body>
+</html>
