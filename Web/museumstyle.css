@@ -458,3 +458,88 @@ div.logofoot.image{
       overflow-y: auto;
     }
     }
+
+/*---Button123---*/
+
+ .button123 {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  height: 100px;
+  width: 1340px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button123 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button123 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button123:hover span {
+  padding-right: 25px;
+}
+
+.button123:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button1234 {
+  border-radius: 4px;
+  background-color:yellowgreen;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  height: 100px;
+  width: 1340px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button1234 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button1234 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button1234:hover span {
+  padding-right: 25px;
+}
+
+.button1234:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+
